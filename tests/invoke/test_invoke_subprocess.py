@@ -1,11 +1,15 @@
-import pytest
+from __future__ import annotations
+
 import sys
 from pathlib import Path
+
+import pytest
+
 from snakemake_invoke.config import SnakemakeInvokeConfig
 from snakemake_invoke.invoke.invoke_subprocess import InvokeSubprocess
 
 
-@pytest.fixture()
+@pytest.fixture
 def config_snakefile_path() -> Path:
     return Path("/tmp/workflow/Snakefile")
 
@@ -21,7 +25,7 @@ def invoke(config):
 
 
 @pytest.mark.parametrize(
-    "input_args,expected",
+    ("input_args", "expected"),
     [
         pytest.param(["a"], "a", id="plain_string"),
         pytest.param(["a b"], "'a b'", id="string_with_space"),

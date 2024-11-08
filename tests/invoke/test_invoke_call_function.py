@@ -1,5 +1,9 @@
+from __future__ import annotations
+
 import os
+
 import pytest
+
 from snakemake_invoke.config import SnakemakeInvokeConfig
 from snakemake_invoke.invoke.invoke_call_function import InvokeCallFunction
 
@@ -16,13 +20,13 @@ def config(config_env_variables):
     )
 
 
-@pytest.fixture()
+@pytest.fixture
 def invoke(config):
     return InvokeCallFunction(config=config)
 
 
 @pytest.mark.parametrize(
-    "config_env_variables,expected",
+    ("config_env_variables", "expected"),
     [
         ({}, {"a": "1", "b": "2"}),
         ({"c": "3"}, {"a": "1", "b": "2", "c": "3"}),
