@@ -37,10 +37,10 @@ dependencies = [
 test = [
   "pytest >=6",
   "pytest-cov >=3",
+  "pytest-mock",
 ]
 dev = [
-  "pytest >=6",
-  "pytest-cov >=3",
+  "snakemake_invoke[test]",
   "mypy",
 ]
 docs = [
