@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import typing
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -26,8 +27,7 @@ class SnakemakeInvoke:
                 work_dir=work_dir, result_files=result_files
             )
         else:
-            msg = f"Unknown execution model: {self.config.execution_model}"
-            raise ValueError(msg)
+            typing.assert_never(self.config.execution_model)
 
     def dry_run(self, work_dir: Path, result_files: list[Path]) -> None:
         InvokeSubprocess(config=self.config).invoke(

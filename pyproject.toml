@@ -30,6 +30,7 @@ dynamic = ["version"]
 dependencies = [
   "snakemake >= 8.24",
   "pydantic >= 2.9",
+  "loguru",
 ]
 
 [project.optional-dependencies]
@@ -40,6 +41,7 @@ test = [
 dev = [
   "pytest >=6",
   "pytest-cov >=3",
+  "mypy",
 ]
 docs = [
   "sphinx>=7.0",
@@ -100,6 +102,9 @@ module = "snakemake_invoke.*"
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
 
+[[tool.mypy.overrides]]
+module = ["snakemake.*"]
+ignore_missing_imports = true
 
 [tool.ruff]
 

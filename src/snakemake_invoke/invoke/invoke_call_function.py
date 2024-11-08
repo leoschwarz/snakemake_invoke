@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import contextlib
 import os
+from collections.abc import Generator
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -50,7 +51,7 @@ class InvokeCallFunction:
             # TODO this misses the report file generation
 
     @contextlib.contextmanager
-    def _set_env_vars(self) -> None:
+    def _set_env_vars(self) -> Generator[None, None, None]:
         """Temporarily sets the configured environment variables for the duration of the context."""
         old_env = os.environ.copy()
         os.environ.update(self.config.env_variables or {})

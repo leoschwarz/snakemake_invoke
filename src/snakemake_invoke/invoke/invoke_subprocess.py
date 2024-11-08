@@ -30,13 +30,13 @@ class InvokeSubprocess:
             base_command=base_command, result_files=result_files, work_dir=work_dir
         )
         self._execute_command(command)
-        if self.config.report_file:
-            command = self.get_command_create_report(
-                base_command=base_command, result_files=result_files, work_dir=work_dir
-            )
+        command = self.get_command_create_report(
+            base_command=base_command, result_files=result_files, work_dir=work_dir
+        )
+        if command:
             self._execute_command(command)
 
-    def _execute_command(self, command):
+    def _execute_command(self, command: list[str]) -> None:
         logger.info("Executing {command}", command=self._args_to_shell_command(command))
         subprocess.run(
             command,
@@ -57,6 +57,8 @@ class InvokeSubprocess:
     def get_command_create_report(
         self, base_command: list[str], result_files: list[Path], work_dir: Path
     ) -> list[str]:
+        if self.config.report_file is None:
+            return []
         return [
             *base_command,
             "--report",
@@ -81,6 +83,6 @@ class InvokeSubprocess:
         ]
 
     @staticmethod
-    def _args_to_shell_command(args):
+    def _args_to_shell_command(args: list[str]) -> str:
         escaped_args = [shlex.quote(arg) for arg in args]
         return " ".join(escaped_args)
