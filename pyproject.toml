@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling", "hatch-vcs"]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 
@@ -26,7 +26,7 @@ classifiers = [
   "Topic :: Scientific/Engineering",
   "Typing :: Typed",
 ]
-dynamic = ["version"]
+version = "0.1.0"
 dependencies = [
   "snakemake >= 8.24",
   "pydantic >= 2.9",
@@ -57,10 +57,6 @@ Homepage = "https://github.com/leoschwarz/snakemake_invoke"
 Discussions = "https://github.com/leoschwarz/snakemake_invoke/discussions"
 Changelog = "https://github.com/leoschwarz/snakemake_invoke/releases"
 
-
-[tool.hatch]
-version.source = "vcs"
-build.hooks.vcs.version-file = "src/snakemake_invoke/_version.py"
 
 [tool.hatch.envs.default]
 features = ["test"]
