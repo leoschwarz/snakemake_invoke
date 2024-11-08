@@ -1,0 +1,12 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 2024.08.19
+_src_path: gh:scientific-python/cookie
+backend: hatch
+email: leonardo.schwarz@fgcz.ethz.ch
+full_name: Leonardo Schwarz
+license: Apache
+org: leoschwarz
+project_name: snakemake_invoke
+project_short_description: Simple Python API wrapper to invoke a Snakemake workflow
+url: https://github.com/leoschwarz/snakemake_invoke
+vcs: true
