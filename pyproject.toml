@@ -66,6 +66,8 @@ build.hooks.vcs.version-file = "src/snakemake_invoke/_version.py"
 features = ["test"]
 scripts.test = "pytest {args}"
 
+[tool.uv]
+reinstall-package = ["snakemake_invoke"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
