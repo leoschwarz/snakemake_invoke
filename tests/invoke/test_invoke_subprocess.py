@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import platform
+
 import sys
 from pathlib import Path
 
@@ -40,6 +42,7 @@ def test_args_to_shell_command(input_args, expected):
     assert result == expected
 
 
+@pytest.mark.skipif(platform.system() == "Windows", reason="requires unix")
 def test_get_base_command(invoke) -> None:
     base_command = invoke.get_base_command(
         extra_args=["--keep-going"],
