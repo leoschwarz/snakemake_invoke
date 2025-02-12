@@ -15,6 +15,7 @@ class SnakemakeInvokeConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
     snakefile_path: Path = Path("Snakefile").absolute()
     execution_model: ExecutionModel = ExecutionModel.SUBPROCESS
+    print_shell_commands: bool = False
     continue_on_error: bool = False
     report_file: str | None = None
     n_cores: int = 1

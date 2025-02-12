@@ -26,7 +26,7 @@ classifiers = [
   "Topic :: Scientific/Engineering",
   "Typing :: Typed",
 ]
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
   "snakemake >= 8.24",
   "pydantic >= 2.9",

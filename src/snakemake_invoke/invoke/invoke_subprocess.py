@@ -25,6 +25,8 @@ class InvokeSubprocess:
         extra_args = extra_args or []
         if self.config.continue_on_error:
             extra_args.append("--keep-going")
+        if self.config.print_shell_commands:
+            extra_args.append("--printshellcmds")
         base_command = self.get_base_command(extra_args=extra_args, work_dir=work_dir)
         command = self.get_command_create_results(
             base_command=base_command, result_files=result_files, work_dir=work_dir

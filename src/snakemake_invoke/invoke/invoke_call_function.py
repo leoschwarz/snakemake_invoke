@@ -27,6 +27,7 @@ class InvokeCallFunction:
 
         with SnakemakeApi(
             OutputSettings(
+                printshellcmds=self.config.print_shell_commands,
                 verbose=True,
                 show_failed_logs=True,
             ),
