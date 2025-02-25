@@ -28,7 +28,7 @@ classifiers = [
 ]
 version = "0.1.1"
 dependencies = [
-  "snakemake >= 8.24",
+  "snakemake @ git+https://github.com/leoschwarz/snakemake@remove-datrie",
   "pydantic >= 2.9",
   "loguru",
 ]
